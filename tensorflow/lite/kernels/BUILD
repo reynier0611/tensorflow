@@ -181,17 +181,6 @@ cc_test(
 )
 
 cc_library(
-    name = "unidirectional_sequence_lstm_test_util",
-    testonly = 1,
-    hdrs = ["unidirectional_sequence_lstm_test_util.h"],
-    deps = [
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@flatbuffers",
-    ],
-)
-
-cc_library(
     name = "test_util",
     testonly = 1,
     srcs = ["test_util.cc"],
@@ -681,11 +670,9 @@ BUILTIN_KERNEL_SRCS = [
     "add_n.cc",
     "arg_min_max.cc",
     "atan2.cc",
-    "audio_spectrogram.cc",
     "basic_rnn.cc",
     "batch_matmul.cc",
     "batch_to_space_nd.cc",
-    "bidirectional_sequence_lstm.cc",
     "bidirectional_sequence_rnn.cc",
     "bitcast.cc",
     "bitwise_xor.cc",
@@ -733,7 +720,6 @@ BUILTIN_KERNEL_SRCS = [
     "local_response_norm.cc",
     "logical.cc",
     "lsh_projection.cc",
-    "lstm.cc",
     "matrix_diag.cc",
     "matrix_set_diag.cc",
     "maximum_minimum.cc",
@@ -788,7 +774,6 @@ BUILTIN_KERNEL_SRCS = [
     "topk_v2.cc",
     "transpose.cc",
     "transpose_conv.cc",
-    "unidirectional_sequence_lstm.cc",
     "unidirectional_sequence_rnn.cc",
     "unique.cc",
     "unpack.cc",
@@ -813,8 +798,6 @@ BUILTIN_KERNEL_DEPS = [
     ":kernel_util",
     ":rng_util",
     ":tensor_slice_util",
-    ":lstm_eval",
-    ":lstm_shared",
     ":op_macros",
     ":padding",
     ":stablehlo_elementwise",
@@ -1006,33 +989,6 @@ cc_library(
 )
 
 cc_library(
-    name = "lstm_eval",
-    srcs = ["lstm_eval.cc"],
-    hdrs = ["lstm_eval.h"],
-    compatible_with = get_compatible_with_portable(),
-    copts = tflite_copts(),
-    deps = [
-        ":cpu_backend_context",
-        ":op_macros",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/kernels/internal:compatibility",
-        "//tensorflow/lite/kernels/internal:kernel_utils",
-        "//tensorflow/lite/kernels/internal:optimized_base",
-        "//tensorflow/lite/kernels/internal:tensor",
-        "//tensorflow/lite/kernels/internal:tensor_utils",
-        "@ruy//ruy",
-        "@ruy//ruy/profiler:instrumentation",
-    ],
-)
-
-cc_library(
-    name = "lstm_shared",
-    hdrs = ["lstm_shared.h"],
-    compatible_with = get_compatible_with_portable(),
-    copts = tflite_copts(),
-)
-
-cc_library(
     name = "builtin_ops_list",
     compatible_with = get_compatible_with_portable(),
     textual_hdrs = ["builtin_ops_list.inc"],
@@ -1107,21 +1063,6 @@ cc_library(
         "//tensorflow/lite:util",
         "//tensorflow/lite/core/c:common",
         "//tensorflow/lite/schema:schema_fbs",
-    ],
-)
-
-cc_test(
-    name = "audio_spectrogram_test",
-    size = "small",
-    srcs = ["audio_spectrogram_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
     ],
 )
 
@@ -1698,19 +1639,6 @@ cc_test(
     ],
 )
 
-cc_test(
-    name = "bidirectional_sequence_lstm_test",
-    size = "small",
-    srcs = ["bidirectional_sequence_lstm_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
 
 cc_test(
     name = "floor_test",
@@ -1765,22 +1693,6 @@ cc_test(
         ":test_util",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "unidirectional_sequence_lstm_test",
-    size = "small",
-    srcs = ["unidirectional_sequence_lstm_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        ":unidirectional_sequence_lstm_test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_benchmark//:benchmark",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
     ],
 )
 
@@ -2358,35 +2270,6 @@ cc_test(
         "//tensorflow/lite/core:framework_stable",
         "//tensorflow/lite/kernels/internal:tensor",
         "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "lstm_test",
-    size = "small",
-    srcs = ["lstm_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
-
-cc_test(
-    name = "lstm_eval_test",
-    size = "small",
-    srcs = ["lstm_eval_test.cc"],
-    deps = [
-        ":cpu_backend_context",
-        ":lstm_eval",
-        ":test_main",
-        "//tensorflow/lite/core/c:common",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -3051,20 +2934,6 @@ cc_test(
         "//tensorflow/lite/core:framework_stable",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "quant_basic_lstm_test",
-    size = "small",
-    srcs = ["quant_basic_lstm_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
     ],
 )
 

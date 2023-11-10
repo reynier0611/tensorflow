@@ -25,7 +25,6 @@ namespace ops {
 namespace custom {
 
 TfLiteRegistration* Register_NUMERIC_VERIFY();
-TfLiteRegistration* Register_AUDIO_SPECTROGRAM();
 TfLiteRegistration* Register_MFCC();
 TfLiteRegistration* Register_DETECTION_POSTPROCESS();
 
@@ -107,14 +106,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
              /* max_version = */ 2);
   AddBuiltin(BuiltinOperator_LOCAL_RESPONSE_NORMALIZATION,
              Register_LOCAL_RESPONSE_NORMALIZATION());
-  AddBuiltin(BuiltinOperator_LSTM, Register_LSTM(), /* min_version = */ 1,
-             /* max_version = */ 4);
-  AddBuiltin(BuiltinOperator_BIDIRECTIONAL_SEQUENCE_LSTM,
-             Register_BIDIRECTIONAL_SEQUENCE_LSTM(), /* min_version = */ 1,
-             /* max_version = */ 3);
-  AddBuiltin(BuiltinOperator_UNIDIRECTIONAL_SEQUENCE_LSTM,
-             Register_UNIDIRECTIONAL_SEQUENCE_LSTM(), /* min_version = */ 1,
-             /* max_version = */ 4);
   AddBuiltin(BuiltinOperator_PAD, Register_PAD(), /* min_version = */ 1,
              /* max_version = */ 4);
   AddBuiltin(BuiltinOperator_PADV2, Register_PADV2(), /* min_version = */ 1,
@@ -385,8 +376,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   // TODO(andrewharp, ahentz): Move these somewhere more appropriate so that
   // custom ops aren't always included by default.
   AddCustom("Mfcc", tflite::ops::custom::Register_MFCC());
-  AddCustom("AudioSpectrogram",
-            tflite::ops::custom::Register_AUDIO_SPECTROGRAM());
   AddCustom("TFLite_Detection_PostProcess",
             tflite::ops::custom::Register_DETECTION_POSTPROCESS());
   // By definition, all of the ops added above are not user-defined ops,

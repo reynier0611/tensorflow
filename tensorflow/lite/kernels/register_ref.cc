@@ -26,7 +26,6 @@ namespace ops {
 namespace custom {
 
 TfLiteRegistration* Register_NUMERIC_VERIFY_REF();
-TfLiteRegistration* Register_AUDIO_SPECTROGRAM();
 TfLiteRegistration* Register_MFCC();
 TfLiteRegistration* Register_DETECTION_POSTPROCESS();
 
@@ -67,9 +66,6 @@ TfLiteRegistration* Register_BATCH_TO_SPACE_ND_REF();
 TfLiteRegistration* Register_MUL_REF();
 TfLiteRegistration* Register_L2NORM_REF();
 TfLiteRegistration* Register_LOCAL_RESPONSE_NORM_REF();
-TfLiteRegistration* Register_LSTM();
-TfLiteRegistration* Register_BIDIRECTIONAL_SEQUENCE_LSTM();
-TfLiteRegistration* Register_UNIDIRECTIONAL_SEQUENCE_LSTM();
 TfLiteRegistration* Register_PAD_REF();
 TfLiteRegistration* Register_PADV2_REF();
 TfLiteRegistration* Register_RESHAPE();
@@ -310,14 +306,7 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
              /* max_version = */ 3);
   AddBuiltin(BuiltinOperator_LOCAL_RESPONSE_NORMALIZATION,
              Register_LOCAL_RESPONSE_NORM_REF());
-  AddBuiltin(BuiltinOperator_LSTM, Register_LSTM(), /* min_version */ 1,
-             /* max_version */ 4);
-  AddBuiltin(BuiltinOperator_BIDIRECTIONAL_SEQUENCE_LSTM,
-             Register_BIDIRECTIONAL_SEQUENCE_LSTM(), /* min_version */ 1,
              /* max_version */ 3);
-  AddBuiltin(BuiltinOperator_UNIDIRECTIONAL_SEQUENCE_LSTM,
-             Register_UNIDIRECTIONAL_SEQUENCE_LSTM(), /* min_version = */ 1,
-             /* max_version = */ 3);
   AddBuiltin(BuiltinOperator_PAD, Register_PAD_REF(), /* min_version = */ 1,
              /* max_version = */ 4);
   AddBuiltin(BuiltinOperator_PADV2, Register_PADV2_REF(), /* min_version = */ 1,
@@ -565,8 +554,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   // TODO(andrewharp, ahentz): Move these somewhere more appropriate so that
   // custom ops aren't always included by default.
   AddCustom("Mfcc", tflite::ops::custom::Register_MFCC());
-  AddCustom("AudioSpectrogram",
-            tflite::ops::custom::Register_AUDIO_SPECTROGRAM());
   AddCustom("TFLite_Detection_PostProcess",
             tflite::ops::custom::Register_DETECTION_POSTPROCESS());
 }
