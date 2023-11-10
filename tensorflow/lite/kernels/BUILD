@@ -676,7 +676,6 @@ BUILTIN_KERNEL_SRCS = [
     "bitwise_xor.cc",
     "broadcast_args.cc",
     "broadcast_to.cc",
-    "bucketize.cc",
     "call_once.cc",
     "cast.cc",
     "ceil.cc",
@@ -708,11 +707,9 @@ BUILTIN_KERNEL_SRCS = [
     "l2norm.cc",
     "local_response_norm.cc",
     "logical.cc",
-    "lsh_projection.cc",
     "matrix_diag.cc",
     "matrix_set_diag.cc",
     "maximum_minimum.cc",
-    "mfcc.cc",
     "mirror_pad.cc",
     "mul.cc",
     "neg.cc",
@@ -1012,21 +1009,6 @@ cc_library(
         "//tensorflow/lite:util",
         "//tensorflow/lite/core/c:common",
         "//tensorflow/lite/schema:schema_fbs",
-    ],
-)
-
-cc_test(
-    name = "mfcc_test",
-    size = "small",
-    srcs = ["mfcc_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
     ],
 )
 
@@ -1359,20 +1341,6 @@ cc_test(
         "//tensorflow/lite:framework_stable",
         "//tensorflow/lite/core:framework_stable",
         "//tensorflow/lite/core/kernels:builtin_ops",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "bucketize_test",
-    size = "small",
-    srcs = ["bucketize_test.cc"],
-    deps = [
-        ":builtin_ops",
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "//tensorflow/lite/testing:util",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -2059,20 +2027,6 @@ cc_test(
         ":test_util",
         "//tensorflow/lite/kernels/internal:reference_base",
         "//tensorflow/lite/kernels/internal:types",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
-
-cc_test(
-    name = "lsh_projection_test",
-    size = "small",
-    srcs = ["lsh_projection_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
         "@flatbuffers",

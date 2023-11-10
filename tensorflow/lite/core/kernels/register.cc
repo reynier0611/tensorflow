@@ -25,7 +25,6 @@ namespace ops {
 namespace custom {
 
 TfLiteRegistration* Register_NUMERIC_VERIFY();
-TfLiteRegistration* Register_MFCC();
 TfLiteRegistration* Register_DETECTION_POSTPROCESS();
 
 }  // namespace custom
@@ -63,7 +62,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_FULLY_CONNECTED, Register_FULLY_CONNECTED(),
              /* min_version = */ 1,
              /* max_version = */ 11);
-  AddBuiltin(BuiltinOperator_LSH_PROJECTION, Register_LSH_PROJECTION());
   AddBuiltin(BuiltinOperator_SOFTMAX, Register_SOFTMAX(),
              /* min_version = */ 1,
              /* max_version = */ 3);
@@ -305,7 +303,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_MULTINOMIAL, Register_MULTINOMIAL());
   AddBuiltin(BuiltinOperator_RANDOM_STANDARD_NORMAL,
              Register_RANDOM_STANDARD_NORMAL());
-  AddBuiltin(BuiltinOperator_BUCKETIZE, Register_BUCKETIZE());
   AddBuiltin(BuiltinOperator_RANDOM_UNIFORM, Register_RANDOM_UNIFORM());
   AddBuiltin(BuiltinOperator_GELU, Register_GELU(),
              /* min_version = */ 1,
@@ -343,7 +340,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddCustom("NumericVerify", tflite::ops::custom::Register_NUMERIC_VERIFY());
   // TODO(andrewharp, ahentz): Move these somewhere more appropriate so that
   // custom ops aren't always included by default.
-  AddCustom("Mfcc", tflite::ops::custom::Register_MFCC());
   AddCustom("TFLite_Detection_PostProcess",
             tflite::ops::custom::Register_DETECTION_POSTPROCESS());
   // By definition, all of the ops added above are not user-defined ops,
