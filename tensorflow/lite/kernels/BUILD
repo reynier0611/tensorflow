@@ -767,7 +767,6 @@ BUILTIN_KERNEL_SRCS = [
     "where.cc",
     "while.cc",
     "zeros_like.cc",
-    "rfft2d.cc",
     "rng_bit_generator.cc",
 ]
 
@@ -936,41 +935,6 @@ cc_library(
         "//tensorflow/lite/kernels/internal:optimized_base",
         "//tensorflow/lite/kernels/internal:tensor",
         "@eigen_archive//:eigen3",
-    ],
-)
-
-cc_library(
-    name = "custom_ops",
-    srcs = [
-        "atan2_custom.cc",
-        "irfft2d.cc",
-        "multinomial.cc",
-        "pooling3d.cc",
-        "random_standard_normal_custom.cc",
-        "random_uniform_custom.cc",
-        "roll.cc",
-        "sign_custom.cc",
-        "table.cc",
-        "unidirectional_sequence_gru.cc",
-    ],
-    hdrs = ["custom_ops_register.h"],
-    compatible_with = get_compatible_with_portable(),
-    copts = tflite_copts(),
-    deps = [
-        ":gru_cell",
-        ":kernel_util",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/kernels:cpu_backend_context",
-        "//tensorflow/lite/kernels:padding",
-        "//tensorflow/lite/kernels/internal:common",
-        "//tensorflow/lite/kernels/internal:compatibility",
-        "//tensorflow/lite/kernels/internal:reference_base",
-        "//tensorflow/lite/kernels/internal:tensor",
-        "//tensorflow/lite/kernels/internal:types",
-        "//third_party/fft2d:fft2d_headers",
-        "@fft2d",
-        "@flatbuffers",
-        "@ruy//ruy/profiler:instrumentation",
     ],
 )
 
@@ -2614,35 +2578,6 @@ cc_test(
         ":test_main",
         ":test_util",
         "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "rfft2d_test",
-    size = "small",
-    srcs = ["rfft2d_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "irfft2d_test",
-    size = "small",
-    srcs = ["irfft2d_test.cc"],
-    deps = [
-        ":custom_ops",
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/schema:schema_fbs",
-        "//tensorflow/lite/testing:util",
         "@com_google_googletest//:gtest",
     ],
 )

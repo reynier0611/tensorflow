@@ -137,7 +137,6 @@ TfLiteRegistration* Register_RESIZE_BILINEAR();
 TfLiteRegistration* Register_RESIZE_NEAREST_NEIGHBOR();
 TfLiteRegistration* Register_REVERSE_SEQUENCE();
 TfLiteRegistration* Register_REVERSE_V2();
-TfLiteRegistration* Register_RFFT2D();
 TfLiteRegistration* Register_ROUND();
 TfLiteRegistration* Register_RSQRT();
 TfLiteRegistration* Register_SCATTER_ND();

@@ -299,7 +299,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
              /* max_version = */ 3);
   AddBuiltin(BuiltinOperator_CALL_ONCE,
              tflite::ops::builtin::Register_CALL_ONCE());
-  AddBuiltin(BuiltinOperator_RFFT2D, Register_RFFT2D());
   AddBuiltin(BuiltinOperator_IMAG, Register_IMAG());
   AddBuiltin(BuiltinOperator_REAL, Register_REAL());
   AddBuiltin(BuiltinOperator_COMPLEX_ABS, Register_COMPLEX_ABS());
