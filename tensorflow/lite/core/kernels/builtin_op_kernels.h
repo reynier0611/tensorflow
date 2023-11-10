@@ -67,8 +67,6 @@ TfLiteRegistration* Register_DEQUANTIZE();
 TfLiteRegistration* Register_DIV();
 TfLiteRegistration* Register_DYNAMIC_UPDATE_SLICE();
 TfLiteRegistration* Register_ELU();
-TfLiteRegistration* Register_EMBEDDING_LOOKUP();
-TfLiteRegistration* Register_EMBEDDING_LOOKUP_SPARSE();
 TfLiteRegistration* Register_EQUAL();
 TfLiteRegistration* Register_EXP();
 TfLiteRegistration* Register_EXPAND_DIMS();

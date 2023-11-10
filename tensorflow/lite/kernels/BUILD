@@ -694,8 +694,6 @@ BUILTIN_KERNEL_SRCS = [
     "div.cc",
     "dynamic_update_slice.cc",
     "elementwise.cc",
-    "embedding_lookup.cc",
-    "embedding_lookup_sparse.cc",
     "exp.cc",
     "expand_dims.cc",
     "fake_quant.cc",
@@ -2006,39 +2004,6 @@ cc_test(
     deps = [
         ":test_main",
         ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
-
-cc_test(
-    name = "embedding_lookup_test",
-    size = "small",
-    srcs = ["embedding_lookup_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/kernels/internal:tensor",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "embedding_lookup_sparse_test",
-    size = "small",
-    srcs = ["embedding_lookup_sparse_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/kernels/internal:tensor",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
         "@flatbuffers",
