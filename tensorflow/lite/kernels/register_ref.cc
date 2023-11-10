@@ -48,9 +48,6 @@ TfLiteRegistration* Register_L2_POOL_REF();
 TfLiteRegistration* Register_CONVOLUTION_REF();
 TfLiteRegistration* Register_DEPTHWISE_CONVOLUTION_REF();
 TfLiteRegistration* Register_SVDF();
-TfLiteRegistration* Register_RNN();
-TfLiteRegistration* Register_BIDIRECTIONAL_SEQUENCE_RNN();
-TfLiteRegistration* Register_UNIDIRECTIONAL_SEQUENCE_RNN();
 TfLiteRegistration* Register_EMBEDDING_LOOKUP();
 TfLiteRegistration* Register_EMBEDDING_LOOKUP_SPARSE();
 TfLiteRegistration* Register_FULLY_CONNECTED_REF();
@@ -253,17 +250,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_SVDF, Register_SVDF(),
              /* min_version = */ 1,
              /* max_version = */ 4);
-  AddBuiltin(BuiltinOperator_RNN, Register_RNN(),
-             /* min_version = */ 1,
-             /* max_version = */ 3);
-  AddBuiltin(BuiltinOperator_BIDIRECTIONAL_SEQUENCE_RNN,
-             Register_BIDIRECTIONAL_SEQUENCE_RNN(),
-             /* min_version = */ 1,
-             /* max_version = */ 3);
-  AddBuiltin(BuiltinOperator_UNIDIRECTIONAL_SEQUENCE_RNN,
-             Register_UNIDIRECTIONAL_SEQUENCE_RNN(),
-             /* min_version = */ 1,
-             /* max_version = */ 3);
   AddBuiltin(BuiltinOperator_EMBEDDING_LOOKUP, Register_EMBEDDING_LOOKUP(),
              /* min_version = */ 1,
              /* max_version = */ 3);

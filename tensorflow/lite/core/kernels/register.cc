@@ -63,17 +63,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_SVDF, Register_SVDF(),
              /* min_version = */ 1,
              /* max_version = */ 4);
-  AddBuiltin(BuiltinOperator_RNN, Register_RNN(),
-             /* min_version = */ 1,
-             /* max_version = */ 3);
-  AddBuiltin(BuiltinOperator_BIDIRECTIONAL_SEQUENCE_RNN,
-             Register_BIDIRECTIONAL_SEQUENCE_RNN(),
-             /* min_version = */ 1,
-             /* max_version = */ 3);
-  AddBuiltin(BuiltinOperator_UNIDIRECTIONAL_SEQUENCE_RNN,
-             Register_UNIDIRECTIONAL_SEQUENCE_RNN(),
-             /* min_version = */ 1,
-             /* max_version = */ 3);
   AddBuiltin(BuiltinOperator_EMBEDDING_LOOKUP, Register_EMBEDDING_LOOKUP(),
              /* min_version = */ 1,
              /* max_version = */ 3);

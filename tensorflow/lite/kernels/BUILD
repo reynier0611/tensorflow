@@ -670,10 +670,8 @@ BUILTIN_KERNEL_SRCS = [
     "add_n.cc",
     "arg_min_max.cc",
     "atan2.cc",
-    "basic_rnn.cc",
     "batch_matmul.cc",
     "batch_to_space_nd.cc",
-    "bidirectional_sequence_rnn.cc",
     "bitcast.cc",
     "bitwise_xor.cc",
     "broadcast_args.cc",
@@ -772,7 +770,6 @@ BUILTIN_KERNEL_SRCS = [
     "topk_v2.cc",
     "transpose.cc",
     "transpose_conv.cc",
-    "unidirectional_sequence_rnn.cc",
     "unique.cc",
     "unpack.cc",
     "unsorted_segment.cc",
@@ -1587,21 +1584,6 @@ cc_test(
 )
 
 cc_test(
-    name = "basic_rnn_test",
-    size = "small",
-    srcs = ["basic_rnn_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
-
-
-cc_test(
     name = "floor_test",
     size = "small",
     srcs = ["floor_test.cc"],
@@ -1654,33 +1636,6 @@ cc_test(
         ":test_util",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "bidirectional_sequence_rnn_test",
-    size = "small",
-    srcs = ["bidirectional_sequence_rnn_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
-
-cc_test(
-    name = "unidirectional_sequence_rnn_test",
-    size = "small",
-    srcs = ["unidirectional_sequence_rnn_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
     ],
 )
 
