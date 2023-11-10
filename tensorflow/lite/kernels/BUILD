@@ -691,7 +691,6 @@ BUILTIN_KERNEL_SRCS = [
     "detection_postprocess.cc",
     "dilate.cc",
     "div.cc",
-    "dynamic_update_slice.cc",
     "elementwise.cc",
     "exp.cc",
     "expand_dims.cc",
@@ -2651,22 +2650,6 @@ cc_test(
         "//tensorflow/lite:framework_stable",
         "//tensorflow/lite/kernels:test_util",
         "@com_google_googletest//:gtest_main",
-    ],
-)
-
-cc_test(
-    name = "dynamic_update_slice_test",
-    size = "small",
-    srcs = ["dynamic_update_slice_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/kernels:subgraph_test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
     ],
 )
 

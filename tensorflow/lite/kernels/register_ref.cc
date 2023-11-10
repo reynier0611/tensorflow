@@ -150,7 +150,6 @@ TfLiteRegistration* Register_RANDOM_STANDARD_NORMAL();
 TfLiteRegistration* Register_RANDOM_UNIFORM();
 TfLiteRegistration* Register_MULTINOMIAL();
 TfLiteRegistration* Register_GELU();
-TfLiteRegistration* Register_DYNAMIC_UPDATE_SLICE();
 TfLiteRegistration* Register_UNSORTED_SEGMENT_PROD();
 TfLiteRegistration* Register_UNSORTED_SEGMENT_MAX();
 TfLiteRegistration* Register_UNSORTED_SEGMENT_MIN();
@@ -467,8 +466,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_GELU, Register_GELU(),
              /* min_version = */ 1,
              /* max_version = */ 2);
-  AddBuiltin(BuiltinOperator_DYNAMIC_UPDATE_SLICE,
-             Register_DYNAMIC_UPDATE_SLICE());
   AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_PROD,
              Register_UNSORTED_SEGMENT_PROD());
   AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_MAX,

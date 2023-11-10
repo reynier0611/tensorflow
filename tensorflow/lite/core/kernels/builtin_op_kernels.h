@@ -64,7 +64,6 @@ TfLiteRegistration* Register_DEPTH_TO_SPACE();
 TfLiteRegistration* Register_DEPTHWISE_CONV_2D();
 TfLiteRegistration* Register_DEQUANTIZE();
 TfLiteRegistration* Register_DIV();
-TfLiteRegistration* Register_DYNAMIC_UPDATE_SLICE();
 TfLiteRegistration* Register_ELU();
 TfLiteRegistration* Register_EQUAL();
 TfLiteRegistration* Register_EXP();
@@ -263,9 +262,6 @@ Register_STABLEHLO_CONVERT();  // WARNING: not implemented, using this
 TfLiteRegistration*
 Register_STABLEHLO_DYNAMIC_SLICE();  // WARNING: not implemented, using this
                                      // op will crash the runtime
-TfLiteRegistration*
-Register_STABLEHLO_DYNAMIC_UPDATE_SLICE();  // WARNING: not implemented, using
-                                            // this op will crash the runtime
 
 TfLiteRegistration* Register_STABLEHLO_PAD();
 
