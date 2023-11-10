@@ -304,15 +304,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_GELU, Register_GELU(),
              /* min_version = */ 1,
              /* max_version = */ 2);
-  AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_PROD,
-             Register_UNSORTED_SEGMENT_PROD());
-  AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_MAX,
-             Register_UNSORTED_SEGMENT_MAX());
-  AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_MIN,
-             Register_UNSORTED_SEGMENT_MIN());
-  AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_SUM,
-             Register_UNSORTED_SEGMENT_SUM());
-  AddBuiltin(BuiltinOperator_ATAN2, Register_ATAN2());
   AddBuiltin(BuiltinOperator_SIGN, Register_SIGN(),
              /* min_version = */ 1,
              /* max_version = */ 2);

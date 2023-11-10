@@ -150,11 +150,6 @@ TfLiteRegistration* Register_RANDOM_STANDARD_NORMAL();
 TfLiteRegistration* Register_RANDOM_UNIFORM();
 TfLiteRegistration* Register_MULTINOMIAL();
 TfLiteRegistration* Register_GELU();
-TfLiteRegistration* Register_UNSORTED_SEGMENT_PROD();
-TfLiteRegistration* Register_UNSORTED_SEGMENT_MAX();
-TfLiteRegistration* Register_UNSORTED_SEGMENT_MIN();
-TfLiteRegistration* Register_UNSORTED_SEGMENT_SUM();
-TfLiteRegistration* Register_ATAN2();
 TfLiteRegistration* Register_SIGN();
 TfLiteRegistration* Register_CALL_ONCE();
 TfLiteRegistration* Register_VAR_HANDLE();
@@ -466,15 +461,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_GELU, Register_GELU(),
              /* min_version = */ 1,
              /* max_version = */ 2);
-  AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_PROD,
-             Register_UNSORTED_SEGMENT_PROD());
-  AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_MAX,
-             Register_UNSORTED_SEGMENT_MAX());
-  AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_MIN,
-             Register_UNSORTED_SEGMENT_MIN());
-  AddBuiltin(BuiltinOperator_UNSORTED_SEGMENT_SUM,
-             Register_UNSORTED_SEGMENT_SUM());
-  AddBuiltin(BuiltinOperator_ATAN2, Register_ATAN2());
   AddBuiltin(BuiltinOperator_SIGN, Register_SIGN());
   AddBuiltin(BuiltinOperator_CALL_ONCE,
              tflite::ops::builtin::Register_CALL_ONCE());
