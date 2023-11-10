@@ -707,14 +707,11 @@ BUILTIN_KERNEL_SRCS = [
     "l2norm.cc",
     "local_response_norm.cc",
     "logical.cc",
-    "matrix_diag.cc",
-    "matrix_set_diag.cc",
     "maximum_minimum.cc",
     "mirror_pad.cc",
     "mul.cc",
     "neg.cc",
     "numeric_verify.cc",
-    "one_hot.cc",
     "pack.cc",
     "pad.cc",
     "pooling.cc",
@@ -2316,20 +2313,6 @@ cc_test(
 )
 
 cc_test(
-    name = "one_hot_test",
-    size = "small",
-    srcs = ["one_hot_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
     name = "logical_test",
     size = "small",
     srcs = ["logical_test.cc"],
@@ -2595,20 +2578,6 @@ cc_test(
 )
 
 cc_test(
-    name = "matrix_diag_test",
-    size = "small",
-    srcs = ["matrix_diag_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
     name = "quantize_test",
     size = "small",
     srcs = ["quantize_test.cc"],
@@ -2620,20 +2589,6 @@ cc_test(
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
         "@flatbuffers",
-    ],
-)
-
-cc_test(
-    name = "matrix_set_diag_test",
-    size = "small",
-    srcs = ["matrix_set_diag_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
     ],
 )
 

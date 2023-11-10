@@ -110,7 +110,6 @@ TfLiteRegistration* Register_RANK();
 TfLiteRegistration* Register_POW();
 TfLiteRegistration* Register_FAKE_QUANT_REF();
 TfLiteRegistration* Register_PACK();
-TfLiteRegistration* Register_ONE_HOT();
 TfLiteRegistration* Register_LOGICAL_OR();
 TfLiteRegistration* Register_LOGICAL_AND();
 TfLiteRegistration* Register_LOGICAL_NOT();
@@ -130,9 +129,7 @@ TfLiteRegistration* Register_ADD_N();
 TfLiteRegistration* Register_GATHER_ND();
 TfLiteRegistration* Register_WHERE();
 TfLiteRegistration* Register_REVERSE_SEQUENCE();
-TfLiteRegistration* Register_MATRIX_DIAG();
 TfLiteRegistration* Register_QUANTIZE_REF();
-TfLiteRegistration* Register_MATRIX_SET_DIAG();
 TfLiteRegistration* Register_IF();
 TfLiteRegistration* Register_WHILE();
 TfLiteRegistration* Register_NON_MAX_SUPPRESSION_V4();
@@ -411,7 +408,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_PACK, Register_PACK(),
              /* min_version = */ 1,
              /* max_version = */ 3);
-  AddBuiltin(BuiltinOperator_ONE_HOT, Register_ONE_HOT());
   AddBuiltin(BuiltinOperator_LOGICAL_OR, Register_LOGICAL_OR());
   AddBuiltin(BuiltinOperator_LOGICAL_AND, Register_LOGICAL_AND());
   AddBuiltin(BuiltinOperator_LOGICAL_NOT, Register_LOGICAL_NOT());
@@ -450,11 +446,9 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_WHERE, Register_WHERE(), /* min_version = */ 1,
              /* max_version = */ 2);
   AddBuiltin(BuiltinOperator_REVERSE_SEQUENCE, Register_REVERSE_SEQUENCE());
-  AddBuiltin(BuiltinOperator_MATRIX_DIAG, Register_MATRIX_DIAG());
   AddBuiltin(BuiltinOperator_QUANTIZE, Register_QUANTIZE_REF(),
              /* min_version = */ 1,
              /* max_version = */ 2);
-  AddBuiltin(BuiltinOperator_MATRIX_SET_DIAG, Register_MATRIX_SET_DIAG());
   AddBuiltin(BuiltinOperator_IF, Register_IF());
   AddBuiltin(BuiltinOperator_WHILE, Register_WHILE());
   AddBuiltin(BuiltinOperator_SCATTER_ND, Register_SCATTER_ND());

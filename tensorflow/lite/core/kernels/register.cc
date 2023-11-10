@@ -228,7 +228,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_PACK, Register_PACK(),
              /* min_version = */ 1,
              /* max_version = */ 4);
-  AddBuiltin(BuiltinOperator_ONE_HOT, Register_ONE_HOT());
   AddBuiltin(BuiltinOperator_LOGICAL_OR, Register_LOGICAL_OR());
   AddBuiltin(BuiltinOperator_LOGICAL_AND, Register_LOGICAL_AND());
   AddBuiltin(BuiltinOperator_LOGICAL_NOT, Register_LOGICAL_NOT());
@@ -271,11 +270,9 @@ BuiltinOpResolver::BuiltinOpResolver() {
              /* max_version = */ 2);
   AddBuiltin(BuiltinOperator_ELU, Register_ELU());
   AddBuiltin(BuiltinOperator_REVERSE_SEQUENCE, Register_REVERSE_SEQUENCE());
-  AddBuiltin(BuiltinOperator_MATRIX_DIAG, Register_MATRIX_DIAG());
   AddBuiltin(BuiltinOperator_QUANTIZE, Register_QUANTIZE(),
              /* min_version = */ 1,
              /* max_version = */ 3);
-  AddBuiltin(BuiltinOperator_MATRIX_SET_DIAG, Register_MATRIX_SET_DIAG());
   AddBuiltin(BuiltinOperator_IF, tflite::ops::builtin::Register_IF());
   AddBuiltin(BuiltinOperator_WHILE, tflite::ops::builtin::Register_WHILE());
   AddBuiltin(BuiltinOperator_SCATTER_ND, Register_SCATTER_ND());
