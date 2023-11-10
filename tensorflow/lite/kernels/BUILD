@@ -716,7 +716,6 @@ BUILTIN_KERNEL_SRCS = [
     "mirror_pad.cc",
     "mul.cc",
     "neg.cc",
-    "non_max_suppression.cc",
     "numeric_verify.cc",
     "one_hot.cc",
     "pack.cc",
@@ -2579,19 +2578,6 @@ cc_test(
         ":test_util",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "non_max_suppression_test",
-    size = "small",
-    srcs = ["non_max_suppression_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
     ],
 )
 

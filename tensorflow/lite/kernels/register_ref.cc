@@ -461,10 +461,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_MATRIX_SET_DIAG, Register_MATRIX_SET_DIAG());
   AddBuiltin(BuiltinOperator_IF, Register_IF());
   AddBuiltin(BuiltinOperator_WHILE, Register_WHILE());
-  AddBuiltin(BuiltinOperator_NON_MAX_SUPPRESSION_V4,
-             Register_NON_MAX_SUPPRESSION_V4());
-  AddBuiltin(BuiltinOperator_NON_MAX_SUPPRESSION_V5,
-             Register_NON_MAX_SUPPRESSION_V5());
   AddBuiltin(BuiltinOperator_SCATTER_ND, Register_SCATTER_ND());
   AddBuiltin(BuiltinOperator_DENSIFY, Register_DENSIFY());
   AddBuiltin(BuiltinOperator_BATCH_MATMUL, Register_BATCH_MATMUL_REF(),

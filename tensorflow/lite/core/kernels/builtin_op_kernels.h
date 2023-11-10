@@ -106,8 +106,6 @@ TfLiteRegistration* Register_MINIMUM();
 TfLiteRegistration* Register_MIRROR_PAD();
 TfLiteRegistration* Register_MUL();
 TfLiteRegistration* Register_NEG();
-TfLiteRegistration* Register_NON_MAX_SUPPRESSION_V4();
-TfLiteRegistration* Register_NON_MAX_SUPPRESSION_V5();
 TfLiteRegistration* Register_NOT_EQUAL();
 TfLiteRegistration* Register_ONE_HOT();
 TfLiteRegistration* Register_PACK();
