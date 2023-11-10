@@ -321,7 +321,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_CALL_ONCE,
              tflite::ops::builtin::Register_CALL_ONCE());
   AddBuiltin(BuiltinOperator_RFFT2D, Register_RFFT2D());
-  AddBuiltin(BuiltinOperator_CONV_3D, Register_CONV_3D());
   AddBuiltin(BuiltinOperator_IMAG, Register_IMAG());
   AddBuiltin(BuiltinOperator_REAL, Register_REAL());
   AddBuiltin(BuiltinOperator_COMPLEX_ABS, Register_COMPLEX_ABS());
@@ -330,7 +329,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_HASHTABLE_FIND, Register_HASHTABLE_FIND());
   AddBuiltin(BuiltinOperator_HASHTABLE_IMPORT, Register_HASHTABLE_IMPORT());
   AddBuiltin(BuiltinOperator_HASHTABLE_SIZE, Register_HASHTABLE_SIZE());
-  AddBuiltin(BuiltinOperator_CONV_3D_TRANSPOSE, Register_CONV_3D_TRANSPOSE());
   AddBuiltin(BuiltinOperator_VAR_HANDLE, Register_VAR_HANDLE());
   AddBuiltin(BuiltinOperator_READ_VARIABLE, Register_READ_VARIABLE());
   AddBuiltin(BuiltinOperator_ASSIGN_VARIABLE, Register_ASSIGN_VARIABLE());

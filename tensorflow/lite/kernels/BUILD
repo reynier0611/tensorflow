@@ -686,8 +686,6 @@ BUILTIN_KERNEL_SRCS = [
     "complex_support.cc",
     "concatenation.cc",
     "conv.cc",
-    "conv3d.cc",
-    "conv3d_transpose.cc",
     "cumsum.cc",
     "densify.cc",
     "depth_to_space.cc",
@@ -1486,43 +1484,6 @@ cc_test(
         "//tensorflow/lite:framework_stable",
         "//tensorflow/lite:string",
         "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_absl//absl/memory",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "conv_mem_test",
-    srcs = ["conv_mem_test.cc"],
-    data = [
-        "//tensorflow/lite:testdata/conv3d_huge_im2col.bin",
-        "//tensorflow/lite:testdata/conv_huge_im2col.bin",
-    ],
-    tags = [
-        "tflite_not_portable_ios",
-        "tflite_smoke_test",
-    ],
-    deps = [
-        ":kernel_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/core/kernels:builtin_ops",
-        "//tensorflow/lite/tools:logging",
-        "@com_google_googletest//:gtest_main",
-    ],
-)
-
-cc_test(
-    name = "conv3d_test",
-    size = "small",
-    srcs = ["conv3d_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite:string",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_absl//absl/memory",
         "@com_google_googletest//:gtest",
@@ -3018,21 +2979,6 @@ cc_test(
         "//tensorflow/lite:framework_stable",
         "//tensorflow/lite/kernels:test_util",
         "@com_google_googletest//:gtest_main",
-    ],
-)
-
-cc_test(
-    name = "conv3d_transpose_test",
-    size = "small",
-    srcs = ["conv3d_transpose_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite:string",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_absl//absl/memory",
-        "@com_google_googletest//:gtest",
     ],
 )
 
