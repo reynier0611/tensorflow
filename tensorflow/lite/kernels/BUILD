@@ -704,11 +704,6 @@ BUILTIN_KERNEL_SRCS = [
     "fully_connected.cc",
     "gather.cc",
     "gather_nd.cc",
-    "hashtable.cc",
-    "hashtable_find.cc",
-    "hashtable_import.cc",
-    "hashtable_lookup.cc",
-    "hashtable_size.cc",
     "if.cc",
     "l2norm.cc",
     "local_response_norm.cc",
@@ -752,7 +747,6 @@ BUILTIN_KERNEL_SRCS = [
     "stablehlo_min_max.cc",
     "stablehlo_scatter.cc",
     "sign.cc",
-    "skip_gram.cc",
     "slice.cc",
     "space_to_batch_nd.cc",
     "space_to_depth.cc",
@@ -763,7 +757,6 @@ BUILTIN_KERNEL_SRCS = [
     "squeeze.cc",
     "strided_slice.cc",
     "sub.cc",
-    "svdf.cc",
     "tile.cc",
     "topk_v2.cc",
     "transpose.cc",
@@ -1997,20 +1990,6 @@ cc_test(
 )
 
 cc_test(
-    name = "svdf_test",
-    size = "small",
-    srcs = ["svdf_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
-
-cc_test(
     name = "fully_connected_test",
     size = "small",
     srcs = ["fully_connected_test.cc"],
@@ -2131,41 +2110,6 @@ cc_test(
     deps = [
         ":test_main",
         ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
-
-cc_test(
-    name = "hashtable_lookup_test",
-    size = "small",
-    srcs = ["hashtable_lookup_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite:string",
-        "//tensorflow/lite:string_util",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/kernels/internal:tensor",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "skip_gram_test",
-    size = "small",
-    srcs = ["skip_gram_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite:string",
-        "//tensorflow/lite:string_util",
-        "//tensorflow/lite/core:framework_stable",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
         "@flatbuffers",
@@ -2865,28 +2809,6 @@ exports_files(
         "fully_connected.h",
     ],
     visibility = ["//tensorflow/lite:__subpackages__"],
-)
-
-cc_test(
-    name = "hashtable_ops_test",
-    size = "small",
-    srcs = [
-        "hashtable_ops_test.cc",
-    ],
-    deps = [
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/core/api",
-        "//tensorflow/lite/experimental/resource",
-        "//tensorflow/lite/kernels:test_main",
-        "//tensorflow/lite/kernels:test_util",
-        "//tensorflow/lite/kernels/internal:tensor",
-        "//tensorflow/lite/testing:util",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
 )
 
 cc_test(

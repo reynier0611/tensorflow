@@ -60,14 +60,10 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_DEPTHWISE_CONV_2D, Register_DEPTHWISE_CONV_2D(),
              /* min_version = */ 1,
              /* max_version = */ 7);
-  AddBuiltin(BuiltinOperator_SVDF, Register_SVDF(),
-             /* min_version = */ 1,
-             /* max_version = */ 4);
   AddBuiltin(BuiltinOperator_FULLY_CONNECTED, Register_FULLY_CONNECTED(),
              /* min_version = */ 1,
              /* max_version = */ 11);
   AddBuiltin(BuiltinOperator_LSH_PROJECTION, Register_LSH_PROJECTION());
-  AddBuiltin(BuiltinOperator_HASHTABLE_LOOKUP, Register_HASHTABLE_LOOKUP());
   AddBuiltin(BuiltinOperator_SOFTMAX, Register_SOFTMAX(),
              /* min_version = */ 1,
              /* max_version = */ 3);
@@ -102,7 +98,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
              Register_RESIZE_NEAREST_NEIGHBOR(),
              /* min_version = */ 1,
              /* max_version = */ 4);
-  AddBuiltin(BuiltinOperator_SKIP_GRAM, Register_SKIP_GRAM());
   AddBuiltin(BuiltinOperator_SPACE_TO_DEPTH, Register_SPACE_TO_DEPTH(),
              /* min_version = */ 1,
              /* max_version = */ 2);
@@ -309,10 +304,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_REAL, Register_REAL());
   AddBuiltin(BuiltinOperator_COMPLEX_ABS, Register_COMPLEX_ABS());
   AddBuiltin(BuiltinOperator_BROADCAST_ARGS, Register_BROADCAST_ARGS());
-  AddBuiltin(BuiltinOperator_HASHTABLE, Register_HASHTABLE());
-  AddBuiltin(BuiltinOperator_HASHTABLE_FIND, Register_HASHTABLE_FIND());
-  AddBuiltin(BuiltinOperator_HASHTABLE_IMPORT, Register_HASHTABLE_IMPORT());
-  AddBuiltin(BuiltinOperator_HASHTABLE_SIZE, Register_HASHTABLE_SIZE());
   AddBuiltin(BuiltinOperator_VAR_HANDLE, Register_VAR_HANDLE());
   AddBuiltin(BuiltinOperator_READ_VARIABLE, Register_READ_VARIABLE());
   AddBuiltin(BuiltinOperator_ASSIGN_VARIABLE, Register_ASSIGN_VARIABLE());

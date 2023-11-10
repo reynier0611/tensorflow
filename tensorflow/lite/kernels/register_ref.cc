@@ -47,10 +47,8 @@ TfLiteRegistration* Register_MAX_POOL_REF();
 TfLiteRegistration* Register_L2_POOL_REF();
 TfLiteRegistration* Register_CONVOLUTION_REF();
 TfLiteRegistration* Register_DEPTHWISE_CONVOLUTION_REF();
-TfLiteRegistration* Register_SVDF();
 TfLiteRegistration* Register_FULLY_CONNECTED_REF();
 TfLiteRegistration* Register_LSH_PROJECTION();
-TfLiteRegistration* Register_HASHTABLE_LOOKUP();
 TfLiteRegistration* Register_SOFTMAX_REF();
 TfLiteRegistration* Register_CONCATENATION_REF();
 TfLiteRegistration* Register_ADD_REF();
@@ -66,7 +64,6 @@ TfLiteRegistration* Register_PADV2_REF();
 TfLiteRegistration* Register_RESHAPE();
 TfLiteRegistration* Register_RESIZE_BILINEAR_REF();
 TfLiteRegistration* Register_RESIZE_NEAREST_NEIGHBOR_REF();
-TfLiteRegistration* Register_SKIP_GRAM();
 TfLiteRegistration* Register_SPACE_TO_DEPTH_REF();
 TfLiteRegistration* Register_GATHER();
 TfLiteRegistration* Register_TRANSPOSE_REF();
@@ -245,14 +242,10 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
              Register_DEPTHWISE_CONVOLUTION_REF(),
              /* min_version = */ 1,
              /* max_version = */ 6);
-  AddBuiltin(BuiltinOperator_SVDF, Register_SVDF(),
-             /* min_version = */ 1,
-             /* max_version = */ 4);
   AddBuiltin(BuiltinOperator_FULLY_CONNECTED, Register_FULLY_CONNECTED_REF(),
              /* min_version */ 1,
              /* max_version */ 11);
   AddBuiltin(BuiltinOperator_LSH_PROJECTION, Register_LSH_PROJECTION());
-  AddBuiltin(BuiltinOperator_HASHTABLE_LOOKUP, Register_HASHTABLE_LOOKUP());
   AddBuiltin(BuiltinOperator_SOFTMAX, Register_SOFTMAX_REF(),
              /* min_version = */ 1,
              /* max_version = */ 3);
@@ -296,7 +289,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
              Register_RESIZE_NEAREST_NEIGHBOR_REF(),
              /* min_version = */ 1,
              /* max_version = */ 4);
-  AddBuiltin(BuiltinOperator_SKIP_GRAM, Register_SKIP_GRAM());
   AddBuiltin(BuiltinOperator_SPACE_TO_DEPTH, Register_SPACE_TO_DEPTH_REF(),
              /* min_version = */ 1,
              /* max_version = */ 2);
