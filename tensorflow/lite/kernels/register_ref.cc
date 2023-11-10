@@ -149,8 +149,6 @@ TfLiteRegistration* Register_BROADCAST_ARGS();
 TfLiteRegistration* Register_RANDOM_STANDARD_NORMAL();
 TfLiteRegistration* Register_RANDOM_UNIFORM();
 TfLiteRegistration* Register_MULTINOMIAL();
-TfLiteRegistration* Register_GELU();
-TfLiteRegistration* Register_SIGN();
 TfLiteRegistration* Register_CALL_ONCE();
 TfLiteRegistration* Register_VAR_HANDLE();
 TfLiteRegistration* Register_READ_VARIABLE();
@@ -458,10 +456,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_RANDOM_STANDARD_NORMAL,
              Register_RANDOM_STANDARD_NORMAL());
   AddBuiltin(BuiltinOperator_RANDOM_UNIFORM, Register_RANDOM_UNIFORM());
-  AddBuiltin(BuiltinOperator_GELU, Register_GELU(),
-             /* min_version = */ 1,
-             /* max_version = */ 2);
-  AddBuiltin(BuiltinOperator_SIGN, Register_SIGN());
   AddBuiltin(BuiltinOperator_CALL_ONCE,
              tflite::ops::builtin::Register_CALL_ONCE());
   AddBuiltin(BuiltinOperator_VAR_HANDLE, Register_VAR_HANDLE());

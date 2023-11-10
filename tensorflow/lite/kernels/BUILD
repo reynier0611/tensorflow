@@ -737,7 +737,6 @@ BUILTIN_KERNEL_SRCS = [
     "stablehlo_reduce_window.cc",
     "stablehlo_min_max.cc",
     "stablehlo_scatter.cc",
-    "sign.cc",
     "slice.cc",
     "space_to_batch_nd.cc",
     "space_to_depth.cc",
@@ -1739,34 +1738,6 @@ cc_test(
         "//tensorflow/lite/schema:schema_fbs",
         "//tensorflow/lite/testing:util",
         "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "sign_custom_test",
-    size = "small",
-    srcs = ["sign_custom_test.cc"],
-    deps = [
-        ":custom_ops",
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "//tensorflow/lite/testing:util",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "sign_test",
-    size = "small",
-    srcs = ["sign_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
     ],
 )
 
