@@ -303,10 +303,7 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_BITCAST, Register_BITCAST());
   AddBuiltin(BuiltinOperator_BITWISE_XOR, Register_BITWISE_XOR());
   AddBuiltin(BuiltinOperator_RIGHT_SHIFT, Register_RIGHT_SHIFT());
-  AddBuiltin(BuiltinOperator_STABLEHLO_SCATTER, Register_STABLEHLO_SCATTER());
   AddBuiltin(BuiltinOperator_DILATE, Register_DILATE());
-  AddBuiltin(BuiltinOperator_STABLEHLO_RNG_BIT_GENERATOR,
-             Register_STABLEHLO_RNG_BIT_GENERATOR());
   AddBuiltin(BuiltinOperator_REDUCE_WINDOW, Register_REDUCE_WINDOW());
   AddBuiltin(BuiltinOperator_STABLEHLO_REDUCE_WINDOW,
              Register_STABLEHLO_REDUCE_WINDOW());

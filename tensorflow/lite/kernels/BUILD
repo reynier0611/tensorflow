@@ -492,24 +492,6 @@ cc_library(
 )
 
 cc_library(
-    name = "stablehlo_elementwise",
-    srcs = ["stablehlo_elementwise.cc"],
-    hdrs = [
-        "stablehlo_elementwise.h",
-    ],
-    compatible_with = get_compatible_with_portable(),
-    copts = tflite_copts(),
-    deps = [
-        ":kernel_util",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/kernels/internal:runtime_shape",
-        "//tensorflow/lite/kernels/internal:tensor_ctypes",
-        "//tensorflow/lite/kernels/internal:types",
-        "@eigen_archive//:eigen3",
-    ],
-)
-
-cc_library(
     name = "rng_util",
     srcs = [
         "rng_util.cc",
@@ -731,7 +713,6 @@ BUILTIN_KERNEL_SRCS = [
     "select.cc",
     "shape.cc",
     "stablehlo_reduce_window.cc",
-    "stablehlo_scatter.cc",
     "slice.cc",
     "space_to_batch_nd.cc",
     "space_to_depth.cc",
@@ -770,7 +751,6 @@ BUILTIN_KERNEL_DEPS = [
     ":tensor_slice_util",
     ":op_macros",
     ":padding",
-    ":stablehlo_elementwise",
     ":control_flow_common",
     "@eigen_archive//:eigen3",
     "@flatbuffers",
@@ -2564,22 +2544,6 @@ cc_test(
         "//tensorflow/lite:framework_stable",
         "//tensorflow/lite/kernels:test_util",
         "@com_google_googletest//:gtest_main",
-    ],
-)
-
-cc_test(
-    name = "stablehlo_scatter_test",
-    size = "small",
-    srcs = ["stablehlo_scatter_test.cc"],
-    deps = [
-        ":subgraph_test_util",
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/c:c_api_types",
-        "//tensorflow/lite/core:subgraph",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
     ],
 )
 

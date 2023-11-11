@@ -156,9 +156,7 @@ TfLiteRegistration* Register_ASSIGN_VARIABLE();
 TfLiteRegistration* Register_BITCAST();
 TfLiteRegistration* Register_BITWISE_XOR();
 TfLiteRegistration* Register_RIGHT_SHIFT();
-TfLiteRegistration* Register_STABLEHLO_SCATTER();
 TfLiteRegistration* Register_DILATE();
-TfLiteRegistration* Register_STABLEHLO_RNG_BIT_GENERATOR();
 TfLiteRegistration* Register_REDUCE_WINDOW();
 TfLiteRegistration* Register_STABLEHLO_REDUCE_WINDOW();
 
@@ -460,8 +458,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_RIGHT_SHIFT, Register_RIGHT_SHIFT());
   
   AddBuiltin(BuiltinOperator_DILATE, Register_DILATE());
-  AddBuiltin(BuiltinOperator_STABLEHLO_RNG_BIT_GENERATOR,
-             Register_STABLEHLO_RNG_BIT_GENERATOR());
   AddBuiltin(BuiltinOperator_REDUCE_WINDOW, Register_REDUCE_WINDOW());
   AddBuiltin(BuiltinOperator_STABLEHLO_REDUCE_WINDOW,
              Register_STABLEHLO_REDUCE_WINDOW());
