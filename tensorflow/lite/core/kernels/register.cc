@@ -275,7 +275,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
   AddBuiltin(BuiltinOperator_IF, tflite::ops::builtin::Register_IF());
   AddBuiltin(BuiltinOperator_WHILE, tflite::ops::builtin::Register_WHILE());
   AddBuiltin(BuiltinOperator_SCATTER_ND, Register_SCATTER_ND());
-  AddBuiltin(BuiltinOperator_DENSIFY, Register_DENSIFY());
   AddBuiltin(BuiltinOperator_SEGMENT_SUM, Register_SEGMENT_SUM());
   AddBuiltin(BuiltinOperator_BATCH_MATMUL, Register_BATCH_MATMUL(),
              /* min_version = */ 1,
@@ -289,9 +288,6 @@ BuiltinOpResolver::BuiltinOpResolver() {
              /* max_version = */ 3);
   AddBuiltin(BuiltinOperator_CALL_ONCE,
              tflite::ops::builtin::Register_CALL_ONCE());
-  AddBuiltin(BuiltinOperator_IMAG, Register_IMAG());
-  AddBuiltin(BuiltinOperator_REAL, Register_REAL());
-  AddBuiltin(BuiltinOperator_COMPLEX_ABS, Register_COMPLEX_ABS());
   AddBuiltin(BuiltinOperator_BROADCAST_ARGS, Register_BROADCAST_ARGS());
   AddBuiltin(BuiltinOperator_VAR_HANDLE, Register_VAR_HANDLE());
   AddBuiltin(BuiltinOperator_READ_VARIABLE, Register_READ_VARIABLE());

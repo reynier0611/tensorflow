@@ -661,11 +661,9 @@ BUILTIN_KERNEL_SRCS = [
     "cast.cc",
     "ceil.cc",
     "comparisons.cc",
-    "complex_support.cc",
     "concatenation.cc",
     "conv.cc",
     "cumsum.cc",
-    "densify.cc",
     "depth_to_space.cc",
     "depthwise_conv.cc",
     "dequantize.cc",
@@ -1343,22 +1341,6 @@ cc_test(
         "//tensorflow/lite:framework_stable",
         "//tensorflow/lite:string",
         "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_absl//absl/memory",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "densify_test",
-    size = "small",
-    srcs = ["densify_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/kernels/internal:types",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_absl//absl/memory",
         "@com_google_googletest//:gtest",
@@ -2432,20 +2414,6 @@ cc_test(
         ":test_main",
         ":test_util",
         "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "complex_support_test",
-    srcs = ["complex_support_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "//tensorflow/lite/testing:util",
         "@com_google_googletest//:gtest",
     ],
 )

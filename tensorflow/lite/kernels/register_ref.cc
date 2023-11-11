@@ -135,16 +135,12 @@ TfLiteRegistration* Register_WHILE();
 TfLiteRegistration* Register_NON_MAX_SUPPRESSION_V4();
 TfLiteRegistration* Register_NON_MAX_SUPPRESSION_V5();
 TfLiteRegistration* Register_SCATTER_ND();
-TfLiteRegistration* Register_DENSIFY();
 TfLiteRegistration* Register_BATCH_MATMUL_REF();
 TfLiteRegistration* Register_HARD_SWISH_REF();
 TfLiteRegistration* Register_DEPTH_TO_SPACE_REF();
 TfLiteRegistration* Register_SELECT_V2();
 TfLiteRegistration* Register_SEGMENT_SUM();
 TfLiteRegistration* Register_BROADCAST_TO();
-TfLiteRegistration* Register_IMAG();
-TfLiteRegistration* Register_REAL();
-TfLiteRegistration* Register_COMPLEX_ABS();
 TfLiteRegistration* Register_BROADCAST_ARGS();
 TfLiteRegistration* Register_CALL_ONCE();
 TfLiteRegistration* Register_VAR_HANDLE();
@@ -433,13 +429,9 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_IF, Register_IF());
   AddBuiltin(BuiltinOperator_WHILE, Register_WHILE());
   AddBuiltin(BuiltinOperator_SCATTER_ND, Register_SCATTER_ND());
-  AddBuiltin(BuiltinOperator_DENSIFY, Register_DENSIFY());
   AddBuiltin(BuiltinOperator_BATCH_MATMUL, Register_BATCH_MATMUL_REF(),
              /* min_version = */ 1,
              /* max_version = */ 3);
-  AddBuiltin(BuiltinOperator_IMAG, Register_IMAG());
-  AddBuiltin(BuiltinOperator_REAL, Register_REAL());
-  AddBuiltin(BuiltinOperator_COMPLEX_ABS, Register_COMPLEX_ABS());
   AddBuiltin(BuiltinOperator_BROADCAST_ARGS, Register_BROADCAST_ARGS());
   AddBuiltin(BuiltinOperator_CALL_ONCE,
              tflite::ops::builtin::Register_CALL_ONCE());
