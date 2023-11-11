@@ -34,7 +34,6 @@ namespace builtin {
 
 // TODO(yunluli): Some of the registries, e.g. Tanh(), could only invoke
 // optimized kernels. Add a _REF() variant for them.
-TfLiteRegistration* Register_ABS();
 TfLiteRegistration* Register_RELU();
 TfLiteRegistration* Register_RELU6();
 TfLiteRegistration* Register_TANH_REF();
@@ -122,7 +121,6 @@ TfLiteRegistration* Register_FILL();
 TfLiteRegistration* Register_MIRROR_PAD();
 TfLiteRegistration* Register_UNIQUE();
 TfLiteRegistration* Register_REVERSE_V2();
-TfLiteRegistration* Register_ADD_N();
 TfLiteRegistration* Register_GATHER_ND();
 TfLiteRegistration* Register_WHERE();
 TfLiteRegistration* Register_REVERSE_SEQUENCE();
@@ -182,8 +180,6 @@ const TfLiteRegistration* BuiltinRefOpResolver::FindOp(const char* op,
 }
 
 BuiltinRefOpResolver::BuiltinRefOpResolver() {
-  AddBuiltin(BuiltinOperator_ABS, Register_ABS(), /* min_version = */ 1,
-             /* max_version = */ 3);
   AddBuiltin(BuiltinOperator_HARD_SWISH, Register_HARD_SWISH_REF());
   AddBuiltin(BuiltinOperator_RELU, Register_RELU(), /* min_version = */ 1,
              /* max_version = */ 3);
@@ -410,7 +406,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_REVERSE_V2, Register_REVERSE_V2(),
              /* min_version = */ 1,
              /* max_version = */ 2);
-  AddBuiltin(BuiltinOperator_ADD_N, Register_ADD_N());
   AddBuiltin(BuiltinOperator_GATHER_ND, Register_GATHER_ND(),
              /* min_version = */ 1,
              /* max_version = */ 4);

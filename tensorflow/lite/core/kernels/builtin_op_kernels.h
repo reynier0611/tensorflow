@@ -39,9 +39,7 @@ namespace builtin {
 // TODO(b/184734878): auto-generate this header file from the BuiltinOperator
 // enum in the FlatBuffer schema.
 
-TfLiteRegistration* Register_ABS();
 TfLiteRegistration* Register_ADD();
-TfLiteRegistration* Register_ADD_N();
 TfLiteRegistration* Register_ARG_MAX();
 TfLiteRegistration* Register_ARG_MIN();
 TfLiteRegistration* Register_ASSIGN_VARIABLE();
