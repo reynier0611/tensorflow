@@ -697,7 +697,6 @@ BUILTIN_KERNEL_SRCS = [
     "pooling.cc",
     "pow.cc",
     "quantize.cc",
-    "random_ops.cc",
     "range.cc",
     "rank.cc",
     "reduce.cc",
@@ -822,8 +821,6 @@ cc_library(
         "//tensorflow/lite/c:c_api_types",
         "//tensorflow/lite:array",
         "//tensorflow/lite:builtin_ops",
-        "@local_tsl//tsl/lib/random:philox_random",
-        "@local_tsl//tsl/lib/random:random_distributions_utils",
         "//tensorflow/lite/core/c:c_api_types",
         # TODO(b/179298174): Move out from the experimental directory.
         "//tensorflow/lite/experimental/resource",
@@ -1213,9 +1210,6 @@ cc_test(
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_absl//absl/algorithm:container",
         "@com_google_absl//absl/log:absl_log",
-        "@com_google_absl//absl/random",
-        "@com_google_absl//absl/random:bit_gen_ref",
-        "@com_google_absl//absl/random:distributions",
         "@com_google_absl//absl/types:span",
         "@com_google_googletest//:gtest",
     ],
@@ -1609,20 +1603,6 @@ cc_test(
 )
 
 cc_test(
-    name = "multinomial_test",
-    size = "small",
-    srcs = ["multinomial_test.cc"],
-    deps = [
-        ":custom_ops",
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "//tensorflow/lite/testing:util",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
     name = "roll_test",
     size = "small",
     srcs = ["roll_test.cc"],
@@ -1650,46 +1630,6 @@ cc_test(
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
         "@flatbuffers",
-    ],
-)
-
-cc_test(
-    name = "random_ops_test",
-    size = "small",
-    srcs = ["random_ops_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "random_standard_normal_custom_test",
-    size = "small",
-    srcs = ["random_standard_normal_custom_test.cc"],
-    deps = [
-        ":custom_ops",
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "//tensorflow/lite/testing:util",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "random_uniform_custom_test",
-    size = "small",
-    srcs = ["random_uniform_custom_test.cc"],
-    deps = [
-        ":custom_ops",
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "//tensorflow/lite/testing:util",
-        "@com_google_googletest//:gtest",
     ],
 )
 
