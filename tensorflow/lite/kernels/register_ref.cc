@@ -130,7 +130,6 @@ TfLiteRegistration* Register_WHILE();
 TfLiteRegistration* Register_NON_MAX_SUPPRESSION_V4();
 TfLiteRegistration* Register_NON_MAX_SUPPRESSION_V5();
 TfLiteRegistration* Register_SCATTER_ND();
-TfLiteRegistration* Register_BATCH_MATMUL_REF();
 TfLiteRegistration* Register_HARD_SWISH_REF();
 TfLiteRegistration* Register_DEPTH_TO_SPACE_REF();
 TfLiteRegistration* Register_SELECT_V2();
@@ -418,9 +417,6 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
   AddBuiltin(BuiltinOperator_IF, Register_IF());
   AddBuiltin(BuiltinOperator_WHILE, Register_WHILE());
   AddBuiltin(BuiltinOperator_SCATTER_ND, Register_SCATTER_ND());
-  AddBuiltin(BuiltinOperator_BATCH_MATMUL, Register_BATCH_MATMUL_REF(),
-             /* min_version = */ 1,
-             /* max_version = */ 3);
   AddBuiltin(BuiltinOperator_BROADCAST_ARGS, Register_BROADCAST_ARGS());
   AddBuiltin(BuiltinOperator_CALL_ONCE,
              tflite::ops::builtin::Register_CALL_ONCE());

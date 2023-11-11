@@ -650,7 +650,6 @@ BUILTIN_KERNEL_SRCS = [
     "activations.cc",
     "add.cc",
     "arg_min_max.cc",
-    "batch_matmul.cc",
     "batch_to_space_nd.cc",
     "bitcast.cc",
     "bitwise_xor.cc",
@@ -662,7 +661,6 @@ BUILTIN_KERNEL_SRCS = [
     "comparisons.cc",
     "concatenation.cc",
     "conv.cc",
-    "cumsum.cc",
     "depth_to_space.cc",
     "depthwise_conv.cc",
     "dequantize.cc",
@@ -1210,19 +1208,6 @@ cc_test(
         ":test_util",
         "//tensorflow/lite:framework_stable",
         "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
-
-cc_test(
-    name = "batch_matmul_test",
-    size = "small",
-    srcs = ["batch_matmul_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
         "@flatbuffers",
@@ -2388,21 +2373,6 @@ cc_test(
         ":test_main",
         ":test_util",
         "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "cumsum_test",
-    size = "small",
-    srcs = ["cumsum_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite:framework_stable",
-        "//tensorflow/lite/core:framework_stable",
-        "//tensorflow/lite/schema:schema_fbs",
-        "//tensorflow/lite/testing:util",
         "@com_google_googletest//:gtest",
     ],
 )
