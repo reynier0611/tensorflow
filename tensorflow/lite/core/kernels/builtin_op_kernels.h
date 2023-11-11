@@ -162,7 +162,6 @@ TfLiteRegistration* Register_ZEROS_LIKE();
 TfLiteRegistration* Register_BITCAST();
 TfLiteRegistration* Register_BITWISE_XOR();
 TfLiteRegistration* Register_RIGHT_SHIFT();
-TfLiteRegistration*
 
 TfLiteRegistration* Register_STABLEHLO_REDUCE_WINDOW();
 
