@@ -702,8 +702,6 @@ BUILTIN_KERNEL_SRCS = [
     "reverse_sequence.cc",
     "right_shift.cc",
     "round.cc",
-    "scatter_nd.cc",
-    "segment_sum.cc",
     "select.cc",
     "shape.cc",
     "stablehlo_reduce_window.cc",
@@ -1635,20 +1633,6 @@ cc_test(
 )
 
 cc_test(
-    name = "scatter_nd_test",
-    size = "small",
-    srcs = ["scatter_nd_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-        "@flatbuffers",
-    ],
-)
-
-cc_test(
     name = "topk_v2_test",
     size = "small",
     srcs = ["topk_v2_test.cc"],
@@ -2363,17 +2347,6 @@ cc_test(
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_googletest//:gtest",
         "@flatbuffers",
-    ],
-)
-
-cc_test(
-    name = "segment_sum_test",
-    srcs = ["segment_sum_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
     ],
 )
 
