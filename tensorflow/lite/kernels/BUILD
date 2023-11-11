@@ -730,12 +730,7 @@ BUILTIN_KERNEL_SRCS = [
     "segment_sum.cc",
     "select.cc",
     "shape.cc",
-    "stablehlo_gather.cc",
-    "stablehlo_add.cc",
-    "stablehlo_multiply.cc",
-    "stablehlo_pad.cc",
     "stablehlo_reduce_window.cc",
-    "stablehlo_min_max.cc",
     "stablehlo_scatter.cc",
     "slice.cc",
     "space_to_batch_nd.cc",
@@ -1200,29 +1195,6 @@ cc_test(
         "//tensorflow/lite/core/c:common",
         "//tensorflow/lite/schema:schema_fbs",
         "@com_google_absl//absl/algorithm:container",
-        "@com_google_absl//absl/types:span",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "stablehlo_pad_test",
-    size = "small",
-    srcs = ["stablehlo_pad_test.cc"],
-    tags = ["tflite_nnapi"],
-    deps = [
-        ":stablehlo_reduce_window_test_util",
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/c:c_api_types",
-        "//tensorflow/lite/c:common",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_absl//absl/algorithm:container",
-        "@com_google_absl//absl/random",
-        "@com_google_absl//absl/random:bit_gen_ref",
-        "@com_google_absl//absl/status",
-        "@com_google_absl//absl/status:statusor",
-        "@com_google_absl//absl/strings:str_format",
         "@com_google_absl//absl/types:span",
         "@com_google_googletest//:gtest",
     ],
@@ -2591,68 +2563,6 @@ cc_test(
         ":custom_ops",
         "//tensorflow/lite:framework_stable",
         "//tensorflow/lite/kernels:test_util",
-        "@com_google_googletest//:gtest_main",
-    ],
-)
-
-cc_test(
-    name = "stablehlo_gather_test",
-    size = "small",
-    srcs = ["stablehlo_gather_test.cc"],
-    deps = [
-        ":test_main",
-        ":test_util",
-        "//tensorflow/lite/c:c_api_types",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest",
-    ],
-)
-
-cc_test(
-    name = "stablehlo_add_test",
-    size = "small",
-    srcs = ["stablehlo_add_test.cc"],
-    deps = [
-        ":subgraph_test_util",
-        ":test_util",
-        "//tensorflow/lite/c:c_api_types",
-        "//tensorflow/lite/c:common",
-        "//tensorflow/lite/core:subgraph",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest_main",
-    ],
-)
-
-cc_test(
-    name = "stablehlo_multiply_test",
-    size = "small",
-    srcs = ["stablehlo_multiply_test.cc"],
-    deps = [
-        ":subgraph_test_util",
-        ":test_util",
-        "//tensorflow/lite/c:c_api_types",
-        "//tensorflow/lite/c:common",
-        "//tensorflow/lite/core:subgraph",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_googletest//:gtest_main",
-    ],
-)
-
-cc_test(
-    name = "stablehlo_min_max_test",
-    size = "small",
-    srcs = ["stablehlo_min_max_test.cc"],
-    deps = [
-        ":test_util",
-        "//tensorflow/lite/c:c_api_types",
-        "//tensorflow/lite/c:common",
-        "//tensorflow/lite/core:subgraph",
-        "//tensorflow/lite/core/c:common",
-        "//tensorflow/lite/schema:schema_fbs",
-        "@com_google_absl//absl/log:absl_log",
         "@com_google_googletest//:gtest_main",
     ],
 )
